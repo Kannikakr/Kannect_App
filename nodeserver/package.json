@@ -1,0 +1,17 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "This is node server",
+  "license": "ISC",
+  "author": "Kannika",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.10",
+    "nodeserver": "file:",
+    "socket.io": "^4.8.1"
+  }
+}

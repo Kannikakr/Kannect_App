@@ -1,0 +1,198 @@
+/* Reset default margins/padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #ff90e8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px 10px;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+}
+
+nav h1 {
+    font-size: 40px;
+    color: #333;
+    text-align: center;
+}
+
+/* Chat container */
+.container {
+    max-width: 950px;
+    width: 90%;
+    background: rgb(255, 255, 255);
+    margin: 10px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    height: 60vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(65, 56, 56);
+}
+
+/* Messages */
+.message {
+    background: #e4d4f7;
+    max-width: 70%;
+    padding: 12px 18px;
+    margin: 10px 0;
+    border-radius: 20px;
+    font-size: 16px;
+    word-wrap: break-word;
+    position: relative;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.left {
+    align-self: flex-start;
+    background-color: #f0c7ec;
+    border: 1px solid #2f3333;
+}
+
+.right {
+    align-self: flex-end;
+    background-color: #f0c7ec;
+    border: 1px solid #384140;
+}
+
+.send {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#send-container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    max-width: 1000px;
+    gap: 5px;
+}
+
+#messageInp {
+    width: 85%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#messageInp:focus {
+    border-color: #8e44ad;
+}
+
+/* From Uiverse.io by satyamchaudharydev */ 
+/* inspired form gumroad website */
+.btn {
+  --bg: #000;
+  --hover-bg: #ff90e8;
+  --hover-text: #000;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
+  border-radius: 20px;
+}
+
+.btn:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.btn:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    nav h1 {
+        font-size: 24px;
+    }
+
+    .message {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    #messageInp {
+        width: 75%;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 20%;
+        font-size: 14px;
+    }
+
+    .container {
+        height: 55vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav h1 {
+        font-size: 20px;
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .container {
+        padding: 15px;
+        height: 50vh;
+    }
+
+    .message {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    #messageInp {
+        width: 70%;
+        font-size: 13px;
+    }
+
+    .btn {
+        width: 25%;
+        font-size: 13px;
+    }
+}
