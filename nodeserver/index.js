@@ -1,8 +1,4 @@
-// This is Node server. this will handle socket io connections
 
-// io.o, edu yalla users yar yar join agta ro avrna yalla listen madute.
-//socket.io for the perticular user
-// node server which will handle socket io connections
 const {createServer} = require("http");
 const {Server} = require("socket.io");
 const httpServer = createServer();
