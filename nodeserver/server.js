@@ -1,14 +1,12 @@
+const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
-const port = process.env.PORT || 8000;
+const path = require("path");
 
-const serverHandler = (req, res) => {
-  res.writeHead(200);
-  res.end("Server is running");
-};
+const app = express();
+const port = process.env.PORT || 10000;
 
-const httpServer = createServer(serverHandler); // 👈 Add basic handler
-
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: "*",
@@ -16,11 +14,18 @@ const io = new Server(httpServer, {
   }
 });
 
+// 🔽 Serve your frontend files
+app.use(express.static(path.join(__dirname, "../public"))); // Adjust path if your frontend is in another folder
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
+// 🔌 WebSocket logic
 const users = {};
 
 io.on('connection', socket => {
   socket.on('new-user-joined', name => {
-    console.log("New user:", name);
     users[socket.id] = name;
     socket.broadcast.emit('user-joined', name);
   });
@@ -38,6 +43,7 @@ io.on('connection', socket => {
   });
 });
 
+// 🔁 Start server
 httpServer.listen(port, '0.0.0.0', () => {
   console.log(`Server is listening on port ${port}`);
 });
