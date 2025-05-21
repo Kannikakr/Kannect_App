@@ -1,8 +1,14 @@
 const { createServer } = require("http");
 const { Server } = require("socket.io");
-
 const port = process.env.PORT || 8000;
-const httpServer = createServer();
+
+const serverHandler = (req, res) => {
+  res.writeHead(200);
+  res.end("Server is running");
+};
+
+const httpServer = createServer(serverHandler); // 👈 Add basic handler
+
 const io = new Server(httpServer, {
   cors: {
     origin: "*",
